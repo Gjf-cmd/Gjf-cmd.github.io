@@ -23,7 +23,7 @@
     <link rel="alternative" href="/atom.xml" title="山峰习习" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png//图标">
+    <link rel="icon" href="/assets/logo.png">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
   <style type="text/css">
@@ -43,11 +43,55 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: #4d4d4d">
+	<!-- 《添加“心知天气”-->
+	<div id="tp-weather-widget"></div>
+	<script>
+			(function(T, h, i, n, k, P, a, g, e) {
+				g = function() {
+					P = h.createElement(i);
+					a = h.getElementsByTagName(i)[0];
+					P.src = k;
+					P.charset = "utf-8";
+					P.async = 1;
+					a.parentNode.insertBefore(P, a)
+				};
+				T["ThinkPageWeatherWidgetObject"] = n;
+				T[n] || (T[n] = function() {
+					(T[n].q = T[n].q || []).push(arguments)
+				});
+				T[n].l = +new Date();
+				if (T.attachEvent) {
+					T.attachEvent("onload", g)
+				} else {
+					T.addEventListener("load", g, false)
+				}
+			}(window, document, "script", "tpwidget", "//widget.thinkpage.cn/widget/chameleon.js"))
+		</script>
+		<script>
+			tpwidget("init", {
+				"flavor": "slim",
+				"location": "WM6N2PM3WY2K",
+				"geolocation": "enabled",
+				"language": "zh-chs",
+				"unit": "c",
+				"theme": "chameleon",
+				"container": "tp-weather-widget",
+				"bubble": "enabled",
+				"alarmType": "badge",
+				"color": "#FFFFFF",
+				"uid": "U88B4B2797",
+				"hash": "c9d7cb43b80ffece52c9a1ebbfbca65f"
+			});
+			tpwidget("show");
+		</script>
+	<!-- 添加“心知天气”》-->
+</div>
+
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/头像/头像.JPG" class="js-avatar">
+			<img src="/assets/头像.JPG" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">郭俊峰</a></h1>
@@ -111,7 +155,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/头像/头像.JPG" class="js-avatar">
+				<img src="/assets/头像.JPG" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">郭俊峰</h1>
