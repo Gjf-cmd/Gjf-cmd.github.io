@@ -202,6 +202,154 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Javascript知识点查漏补缺" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div align="center" class="post-count">
+    字数：887字 | 预计阅读时长：3分钟
+  </div>
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/01/12/Javascript%E7%9F%A5%E8%AF%86%E7%82%B9%E6%9F%A5%E6%BC%8F%E8%A1%A5%E7%BC%BA/">Javascript知识点查漏补缺</a>
+    </h1>
+  
+
+        
+        <a href="/2020/01/12/Javascript%E7%9F%A5%E8%AF%86%E7%82%B9%E6%9F%A5%E6%BC%8F%E8%A1%A5%E7%BC%BA/" class="archive-article-date">
+  	<time datetime="2020-01-12T07:05:44.269Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="JavaScript知识点查漏补缺"><a href="#JavaScript知识点查漏补缺" class="headerlink" title="JavaScript知识点查漏补缺"></a>JavaScript知识点查漏补缺</h1><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h3 id="1-比值函数"><a href="#1-比值函数" class="headerlink" title="1.比值函数"></a>1.比值函数</h3><p>字符串排序，我们用sort()方法<br>数字排序，使用sort()方法会出现错误，应该：使用比值函数来修挣此错误  </p>
+<h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><p>升序<br><code>var points = [40, 100, 1, 5, 25, 10];</code><br><code>points.sort(function(a, b){return a - b});</code>  </p>
+<p>降序<br><code>var points = [40, 100, 1, 5, 25, 10];</code>  </p>
+<p><code>points.sort(function(a, b){return b - a});</code>  </p>
+<p>随机顺序排列数组<br><code>var points = [40, 100, 1, 5, 25, 10];</code><br><code>points.sort(function(a, b){return 0.5 - Math.random()});</code></p>
+<h3 id="2-寻找数组的最大值和最小值"><a href="#2-寻找数组的最大值和最小值" class="headerlink" title="2.寻找数组的最大值和最小值"></a>2.寻找数组的最大值和最小值</h3><h4 id="最大值-Math-max-apply"><a href="#最大值-Math-max-apply" class="headerlink" title="最大值 Math.max.apply"></a>最大值 Math.max.apply</h4><p>var points = [40, 100, 1, 5, 25, 10];<br>function myArrayMax(arr) {<br>   return Math.max.apply(null, arr);<br>}<br>myArrayMax(points); </p>
+<h3 id="最小值-Math-min-apply"><a href="#最小值-Math-min-apply" class="headerlink" title="最小值 Math.min.apply"></a>最小值 Math.min.apply</h3><p>注意：Math.max.apply([1, 2, 3]) 等于 Math.max(1, 2, 3)</p>
+<h3 id="3-数组迭代"><a href="#3-数组迭代" class="headerlink" title="3.数组迭代"></a>3.数组迭代</h3><p>可参考<a href="https://www.w3school.com.cn/js/js_array_iteration.asp" target="_blank" rel="noopener">https://www.w3school.com.cn/js/js_array_iteration.asp</a></p>
+<p>##正则表达式<br><!DOCTYPE html></p>
+<html>
+    <head>
+        <title>正则表达式</title>
+        <mcta charset="utf-8"><!--避免出现乱码现象-->
+        <mcta name="viewport" content="width=device-width,initial-scale=1.0"><!--实现网页尺寸“自适应”-->
+
+<pre><code>    &lt;script type=&quot;text/javascrpit&quot; src=&quot;正则表达式.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;script&gt;
+        var patt1 = RegExp(&quot;hello&quot;);
+        var patt2 = /word/g;
+        //俩个斜杠里写你需要查找的东西 斜杠后的attributes是可选项，值有g(全局匹配))i(区分大小写匹配，有i都可以匹配)
+
+        var str1 = &quot;hello Neimenggu&quot;;
+
+        console.log(str1.test(patt1));//test()方法返回布尔值（true）
+
+        console.log(str1.exec(patt1));//exec()方法返回找到的值（hello）找不到返回null
+
+        var str2 = &quot;1 hello 2 world 3&quot;;
+        console.log(str2.match(/\d+/g));//match()方法 字符串匹配 返回找到值的一个数组[1，2，3]
+
+        console.log(str1.search(patt1));//search()字符串查找
+
+        console.log(str1.replace(/hello/g,&quot;hi&quot;));
+        //replace()字符串替换 把str1字符串里的hello替换为hi，对原始字符串str1没有影响，只是生成了一个temp变量
+
+        console.log(str1.split(patt1));//.split()字符串分割
+
+        /[a-r]/g//查找[]内的任何字符
+        /[^avr]/g//查找任何不在[]内的字符
+        /[a-z]/g//查找任何小写从a-z的字符
+        /[A-Z]/g//查找任何大写从A-Z的字符
+        /[A-z]/g//查找任何大写A到小写z的字符
+        /[hello|world]/g//查找hello或者world
+
+        var str1 = &quot;hitext hot&quot;;
+        /h.t/g//查找单个字符，出了换行和结束符都可以查找 会返回hit、hot  .相当于代替一个字符
+
+        /\w/g//查找单词字符(字母、数字、下划线)
+
+        /\d/g//查找数字字符
+        /\D/g//查找非数字字符
+
+        /\s/g//查找空白字符(空格、tab、换行、回车)
+        /\S/g//查找非空白字符(空格、tab、换行、回车)
+
+        var str1 = &quot;hello gjfman&quot;;
+        /\bman/g//匹配单词边界  会匹配到gjfman
+        /\Bman/g//匹配非单词边界
+
+        /\n/g//查找换行符\n
+
+        //以下字符均可为任意字符 H、d什么的
+        var str1 = &quot;Hello Humman，Hello world&quot;;
+        /\H+/g//匹配任何包含至少一个H的字符串 匹配到Hello，Humman，Hello   H可任意，h、a、v任意字符
+
+        /\H*/g//匹配任何包含零个或多个H的字符串
+
+        /\H?/g//匹配任何包含零个或一个H的字符串 
+
+        var str1 = &quot;100，1000，10000，100000&quot;;
+        /\d{4}/g//格式为n{x} 匹配任何包含x个n的序列的字符串 会匹配到1000
+        /\d{3,4}/g//格式为n{x,y} 匹配任何包含x或y个n的序列的字符串 会匹配到100，1000
+        /\d{3,}/g//格式为n{x,} 匹配至少包含x个n的序列的字符串 会匹配到100，1000，10000，100000
+
+        /n$/g//匹配任何结尾为$的字符串
+        /^n/g//匹配任何开头为n的字符串
+    &lt;/script&gt;
+&lt;/body&gt;</code></pre></mcta></mcta><meta name="generator" content="Hexo 4.2.0"></head></html>
+详情可查看https://www.w3school.com.cn/js/js_regexp.asp
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/01/12/Javascript%E7%9F%A5%E8%AF%86%E7%82%B9%E6%9F%A5%E6%BC%8F%E8%A1%A5%E7%BC%BA/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
     <article id="post-hexo博客图片的问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div align="center" class="post-count">
     字数：294字 | 预计阅读时长：1分钟
@@ -623,5 +771,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
+
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
 </html>
